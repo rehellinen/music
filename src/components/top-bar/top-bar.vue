@@ -4,11 +4,12 @@
       .mask(v-show="type || login || logo" :class="{ login }")
       .main
         .menu
-          img(
-            @mouseenter="changeLogo(true)"
-            @mouseleave="changeLogo(false)"
-            src='../../assets/images/logo.png'
-            )
+          router-link(to="/" tag="div")
+            img(
+              @mouseenter="changeLogo(true)"
+              @mouseleave="changeLogo(false)"
+              src='../../assets/images/logo.png'
+              )
           .menu-items
             p Add
             router-link(to="/hot" tag="p") Hot
@@ -39,21 +40,33 @@
       .mask
       .main
         p.title Daily
-        p Cooking
-        p Do housework
-        p Public
-        p Others
+        router-link.cursor(to="/hot" tag="div")
+          p(@click="changeType") Cooking
+        router-link.cursor(to="/hot" tag="div")
+          p(@click="changeType") Do housework
+        router-link.cursor(to="/hot" tag="div")
+          p(@click="changeType") Public
+        router-link.cursor(to="/hot" tag="div")
+          p(@click="changeType") Others
         p.title.sport Sport
-        p Indoor activities
-        p Outdoor sports
-        p water sports
+        router-link.cursor(to="/hot" tag="div")
+          p(@click="changeType") Indoor activities
+        router-link.cursor(to="/hot" tag="div")
+          p(@click="changeType") Outdoor sports
+        router-link.cursor(to="/hot" tag="div")
+          p(@click="changeType") water sports
         p.title Nature
-        p Forest
-        p Desert
+        router-link.cursor(to="/hot" tag="div")
+          p(@click="changeType") Forest
+        router-link.cursor(to="/hot" tag="div")
+          p(@click="changeType") Desert
         p.title Emotion
-        p Happy
-        p Sadness
-        p Complex
+        router-link.cursor(to="/hot" tag="div")
+          p(@click="changeType") Happy
+        router-link.cursor(to="/hot" tag="div")
+          p(@click="changeType") Sadness
+        router-link.cursor(to="/hot" tag="div")
+          p(@click="changeType") Complex
     .logo-container(v-show="logo")
       .mask
       .main
@@ -110,6 +123,8 @@ export default {
 
 <style lang="sass" scoped>
   @import "~assets/base"
+  .cursor
+    cursor: pointer
   .transition
     transition: all 0.5s ease-in-out
   .mask
