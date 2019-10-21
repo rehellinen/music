@@ -73,6 +73,17 @@ module.exports = {
         ]
       },
       {
+        test: /\.scss$/,
+        use: [
+          isProduction
+            // extract css in production environment
+            ? MiniCssExtractPlugin.loader
+            : 'vue-style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
+      },
+      {
         test: /\.css$/,
         use: [
           isProduction

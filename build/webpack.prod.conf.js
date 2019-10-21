@@ -13,6 +13,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
   .BundleAnalyzerPlugin
 
 const config = require('./config')
+const { r } = require('./utils')
 const baseWebpackConf = require('./webpack.base.conf')
 
 const webpackConfig = merge(baseWebpackConf, {
