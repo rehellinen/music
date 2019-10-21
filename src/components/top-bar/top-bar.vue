@@ -4,10 +4,14 @@
       .mask(v-show="type || login || logo" :class="{ login }")
       .main
         .menu
-          img(@click="changeLogo" src='../../assets/images/logo.png')
+          img(
+            @mouseenter="changeLogo(true)"
+            @mouseleave="changeLogo(false)"
+            src='../../assets/images/logo.png'
+            )
           .menu-items
             p Add
-            p Hot
+            router-link(to="/hot" tag="p") Hot
             p(@click="changeType") Type
         .avatar
           img(@click="changeLogin" src='../../assets/images/avatar.jpg')
@@ -86,16 +90,19 @@ export default {
       this.login = !this.login
       this.type = false
       this.logo = false
+      this.$emit('blur', this.login)
     },
     changeType () {
       this.type = !this.type
       this.login = false
       this.logo = false
+      this.$emit('blur', this.type)
     },
-    changeLogo () {
-      this.logo = !this.logo
+    changeLogo (e) {
+      this.logo = e
       this.login = false
       this.type = false
+      this.$emit('blur', this.logo)
     }
   }
 }
@@ -115,12 +122,11 @@ export default {
     z-index: 100
     opacity: 0.6
     &.outer
-      z-index: 100
       top: 115px
   .top-bar
     height: 115px
     .mask
-      z-index: 0
+      z-index: 101
       height: 115px
       opacity: 0.6
       &.login
@@ -128,7 +134,7 @@ export default {
     .main
       width: 100%
       position: absolute
-      z-index: 1
+      z-index: 101
     .menu
       float: left
       padding-top: 45px
@@ -174,7 +180,7 @@ export default {
   .login-container
     .mask
       opacity: 0.6
-      z-index: 100
+      z-index: 101
     p
       font-size: $font-18
       margin-bottom: 15px

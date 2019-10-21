@@ -1,15 +1,27 @@
 <template lang="pug">
   .wrapper
-    top-bar
-    router-view
+    top-bar(@blur="setBlur")
+    router-view(:blur="blur")
 </template>
 
 <script>
 import TopBar from './components/top-bar/top-bar'
+import Banner from './components/banner/banner'
 
 export default {
   components: {
+    Banner,
     TopBar
+  },
+  data () {
+    return {
+      blur: false
+    }
+  },
+  methods: {
+    setBlur (e) {
+      this.blur = e
+    }
   }
 }
 </script>

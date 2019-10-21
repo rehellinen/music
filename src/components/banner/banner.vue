@@ -11,7 +11,10 @@
         :class="classRender[i] || leftHide"
         class="YcenterPosition"
       >
-        <img :src="item">
+        <img
+          :src="item"
+          :class="{ blur }"
+        >
       </li>
     </ul>
     <div
@@ -28,6 +31,10 @@
 <script>
 export default {
   props: {
+    blur: {
+      type: Boolean,
+      default: false
+    },
     swiperOption: {
       type: Object,
       default: function () {
@@ -253,6 +260,9 @@ export default {
           width: 430px;
           height: 430px;
           display: block;
+          &.blur {
+            opacity: 0.4;
+          }
         }
       }
 
