@@ -78,7 +78,7 @@ export default {
     return {
       login: false,
       type: false,
-      logo: true
+      logo: false
     }
   },
   methods: {
@@ -112,15 +112,19 @@ export default {
     bottom: 0
     left: 0
     right: 0
-    z-index: 0
-    opacity: 0.3
+    z-index: 100
+    opacity: 0.6
+    &.outer
+      z-index: 100
+      top: 115px
   .top-bar
     height: 115px
     .mask
+      z-index: 0
       height: 115px
-      opacity: 0.5
+      opacity: 0.6
       &.login
-        opacity: 0.6
+        opacity: 0.85
     .main
       width: 100%
       position: absolute
@@ -149,6 +153,7 @@ export default {
       float: right
       text-align: right
       img
+        /*position: absolute*/
         cursor: pointer
         width: 60px
         height: 60px
@@ -165,10 +170,11 @@ export default {
     .main
       padding: 0 5px
       position: absolute
-      z-index: 1
+      z-index: 101
   .login-container
     .mask
       opacity: 0.6
+      z-index: 100
     p
       font-size: $font-18
       margin-bottom: 15px
@@ -207,8 +213,6 @@ export default {
         vertical-align: middle
         color: white
   .type-container
-    .mask
-      opacity: 0.5
     .title
       font-size: $font-77
       margin-bottom: 2px
@@ -227,12 +231,10 @@ export default {
     p
       color: white
       font-size: $font-20
-    .mask
-      opacity: 0.5
     .main
       position: absolute
       width: 100%
-      z-index: 1
+      z-index: 101
     .top
       width: 100%
       height: 205px
