@@ -13,6 +13,18 @@ export default {
     Banner,
     TopBar
   },
+  beforeCreate () {
+    const colorNum = Math.floor(Math.random() * 6)
+    const arr = [
+      'rgb(120, 61, 190)',
+      'rgb(119, 189, 30)',
+      'rgb(233, 74, 53)',
+      'rgb(248, 227, 0)',
+      'rgb(1, 179, 227)',
+      'rgb(0, 0, 0)'
+    ]
+    document.body.style.backgroundColor = arr[colorNum]
+  },
   data () {
     return {
       blur: false
@@ -31,8 +43,6 @@ export default {
   @font-face
     font-family: 'lineto'
     src: url(./assets/lineto-brown-regular.ttf) format("truetype")
-  body
-    background-color: $purple
   .wrapper
     overflow: hidden
     width: 100%
