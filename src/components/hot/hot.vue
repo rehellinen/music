@@ -16,6 +16,7 @@
           p Foshan,China
           p Writer
           .list
+            img(src="../../assets/images/hot@music.png")
             p #1
               span SHAKESHAKE
             p #2
@@ -83,6 +84,12 @@ export default {}
         font-size: $font-53
       .list
         margin-top: 105px
+        img
+          position: absolute
+          width: 17px
+          height: 22px
+          margin-left: 385px
+          margin-top: 0
         p
           font-size: $font-18
           margin-top: 15px
