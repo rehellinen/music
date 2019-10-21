@@ -13,6 +13,11 @@ export default {
     Banner,
     TopBar
   },
+  data () {
+    return {
+      blur: false
+    }
+  },
   beforeCreate () {
     const colorNum = Math.floor(Math.random() * 6)
     const arr = [
@@ -24,11 +29,6 @@ export default {
       'rgb(0, 0, 0)'
     ]
     document.body.style.backgroundColor = arr[colorNum]
-  },
-  data () {
-    return {
-      blur: false
-    }
   },
   methods: {
     setBlur (e) {

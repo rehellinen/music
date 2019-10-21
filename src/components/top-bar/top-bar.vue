@@ -11,7 +11,7 @@
               src='../../assets/images/logo.png'
               )
           .menu-items
-            p Add
+            router-link(to="/add" tag="p") Add
             router-link(to="/hot" tag="p") Hot
             p(@click="changeType") Type
         .avatar
