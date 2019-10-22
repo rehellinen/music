@@ -29,21 +29,37 @@
         img.last(src="../../assets/images/add@last.png")
         img.pause(src="../../assets/images/add@pause.png")
         img.next(src="../../assets/images/add@next.png")
-      img.stop(src="../../assets/images/add@stop.png")
+      img.stop(src="../../assets/images/add@stop.png" @click="toStop")
     .menu-container()
       .menu
         span(@click="changeIndex(0)" :class="{ white: index === 0 }") Choose a colour type
         span(@click="changeIndex(1)" :class="{ white: index === 1 }") Editing a time value
         span(@click="changeIndex(2)" :class="{ white: index === 2 }") Add effect
       .images(v-show="index === 0")
-        img(src="../../assets/images/gradient@1.jpg")
-        img(src="../../assets/images/gradient@2.jpg")
-        img(src="../../assets/images/gradient@3.jpg")
-        img(src="../../assets/images/gradient@4.jpg")
-        img(src="../../assets/images/gradient@5.jpg")
-        img(src="../../assets/images/gradient@6.jpg")
-        img(src="../../assets/images/gradient@7.jpg")
-        img(src="../../assets/images/gradient@8.jpg")
+        div(:class="{ opacity: gradientIndex === 0 }" @click="changeGradientIndex(0)")
+          img(src="../../assets/images/gradient@1.jpg")
+          span BYO
+        div(:class="{ opacity: gradientIndex === 1 }"  @click="changeGradientIndex(1)")
+          img(src="../../assets/images/gradient@2.jpg")
+          span BBY
+        div(:class="{ opacity: gradientIndex === 2 }" @click="changeGradientIndex(2)")
+          img(src="../../assets/images/gradient@3.jpg")
+          span RPYG
+        div(:class="{ opacity: gradientIndex === 3 }" @click="changeGradientIndex(3)")
+          img(src="../../assets/images/gradient@4.jpg")
+          span PPYW
+        div(:class="{ opacity: gradientIndex === 4 }" @click="changeGradientIndex(4)")
+          img(src="../../assets/images/gradient@5.jpg")
+          span POY
+        div(:class="{ opacity: gradientIndex === 5 }" @click="changeGradientIndex(5)")
+          img(src="../../assets/images/gradient@6.jpg")
+          span OPBP
+        div(:class="{ opacity: gradientIndex === 6 }" @click="changeGradientIndex(6)")
+          img(src="../../assets/images/gradient@7.jpg")
+          span YGB
+        div(:class="{ opacity: gradientIndex === 7 }" @click="changeGradientIndex(7)")
+          img(src="../../assets/images/gradient@8.jpg")
+          span OYBP
       .text(v-show="index === 2")
         span Change the speed
         span Repeat
@@ -67,12 +83,19 @@
 export default {
   data () {
     return {
-      index: 0
+      index: 0,
+      gradientIndex: 0
     }
   },
   methods: {
     changeIndex (i) {
       this.index = i
+    },
+    changeGradientIndex (i) {
+      this.gradientIndex = i
+    },
+    toStop () {
+      this.$router.push('/res')
     }
   }
 }
@@ -101,6 +124,8 @@ export default {
 
     @for $i from 1 through 5 {
       .box span:nth-child(#{$i}){
+        background-image: url("../../assets/images/music@back.png");
+        background-position: $i * 15 + px, 0;
         height:50px;
         left: ($i - 1) * 35px;
         animation: run $i/3 + s linear 0s infinite alternate;
@@ -109,6 +134,8 @@ export default {
 
     @for $i from 6 through 15 {
       .box span:nth-child(#{$i}){
+        background-image: url("../../assets/images/music@back.png");
+        background-position: $i * 15 + px, 0;
         height:50px;
         left: ($i - 1) * 35px;
         animation: run $i/4 + s linear 0s infinite alternate;
@@ -117,6 +144,8 @@ export default {
 
     @for $i from 16 through 25 {
       .box span:nth-child(#{$i}){
+        background-image: url("../../assets/images/music@back.png");
+        background-position: $i * 15 + px, 0;
         height:50px;
         left: ($i - 1) * 35px;
         animation: run $i/10 + s linear 0s infinite alternate;
@@ -172,6 +201,7 @@ export default {
         }
       }
       .stop {
+        cursor: pointer;
         vertical-align: middle;
         width: 23px;
       }
@@ -183,7 +213,7 @@ export default {
         span {
           cursor: pointer;
           margin-right: 40px;
-          font-size: $font-24;
+          font-size: $font-20;
         }
       }
       .text {
@@ -214,12 +244,26 @@ export default {
       }
       .images {
         position: absolute;
-        width: 1070px;
+        width: 1300px;
         margin-left: -210px;
         margin-top: 30px;
+        div {
+          cursor: pointer;
+          &.opacity {
+            opacity: 1;
+          }
+          opacity: 0.7;
+          display: inline-flex;
+          align-items: center;
+          flex-direction: column;
+          margin-right: 50px;
+        }
+        span {
+          margin-top: 20px;
+          color: white;
+        }
         img {
           width: 90px;
-          margin-right: 50px;
           &:last-child {
              margin-right: 0;
           }
