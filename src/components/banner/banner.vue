@@ -11,10 +11,15 @@
         :class="classRender[i] || leftHide"
         class="YcenterPosition"
       >
-        <img
-          :src="item"
-          :class="{ blur }"
+        <router-link
+          to="/hot"
+          tag="div"
         >
+          <img
+            :src="item"
+            :class="{ blur }"
+          >
+        </router-link>
       </li>
     </ul>
     <div
@@ -257,6 +262,7 @@ export default {
         transition: all 0.5s ease-out;
         border-radius: 5px;
         img {
+          cursor: pointer;
           width: 430px;
           height: 430px;
           display: block;
