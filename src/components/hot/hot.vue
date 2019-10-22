@@ -3,19 +3,21 @@
     p.title TOP 10
     .song
       .left
-        img(src="../../assets/images/cover@1.jpg")
-        img(src="../../assets/images/cover@2.jpg")
-        img(src="../../assets/images/cover@3.jpg")
-        img(src="../../assets/images/cover@4.jpg")
-        img(src="../../assets/images/cover@5.jpg")
-        img(src="../../assets/images/cover@6.jpg")
+        img(src="../../assets/images/cover@1.jpg" :class="{ blur }")
+        img(src="../../assets/images/cover@2.jpg" :class="{ blur }")
+        img(src="../../assets/images/cover@6.jpg" :class="{ blur }")
+        img(src="../../assets/images/cover@4.jpg" :class="{ blur }")
+        img(src="../../assets/images/cover@5.jpg" :class="{ blur }")
+        img(src="../../assets/images/cover@7.jpg" :class="{ blur }")
+        img(src="../../assets/images/cover@9.jpg" :class="{ blur }")
+        img(src="../../assets/images/cover@10.jpg" :class="{ blur }")
       .center
         .mask
         .main
-          p.title Sami mini
-          p Foshan,China
-          p Writer
-          .list
+          p.title(:class="{ blur }") Sami mini
+          p(:class="{ blur }") Foshan,China
+          p(:class="{ blur }") Writer
+          .list(:class="{ blur }")
             img(src="../../assets/images/hot@music.png")
             p #1
               span SHAKESHAKE
@@ -29,21 +31,36 @@
               span Hungry~.~
             p #6
               span Ice cream machine
-            p #7
+            p.wood #7
               span Wood
-          img(src="../../assets/images/cover@7.jpg")
-          img(src="../../assets/images/cover@8.jpg")
-          img(src="../../assets/images/cover@9.jpg")
-          img(src="../../assets/images/cover@10.jpg")
-      img.right(src="../../assets/images/cover@6.jpg")
+          img(src="../../assets/images/cover@3.jpg" :class="{ blur }")
+          img(src="../../assets/images/cover@8.jpg" :class="{ blur }")
+          img(src="../../assets/images/cover@9.jpg" :class="{ blur }")
+          img(src="../../assets/images/cover@10.jpg" :class="{ blur }")
+          img(src="../../assets/images/cover@6.jpg" :class="{ blur }")
+          img(src="../../assets/images/cover@5.jpg" :class="{ blur }")
+          img(src="../../assets/images/cover@2.jpg" :class="{ blur }")
+          img(src="../../assets/images/cover@7.jpg" :class="{ blur }")
+      img.right(src="../../assets/images/cover@6.jpg" :class="{ blur }")
 
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    blur: {
+      type: Boolean,
+      default: false
+    }
+  }
+}
 </script>
 
 <style lang="sass" scoped>
+  .wood
+    margin-bottom: 5px
+  .blur
+    opacity: 0.4
   @import "~assets/base"
   .hot
     margin: 0 auto
@@ -54,7 +71,7 @@ export default {}
       font-size: $font-14
       color: white
     .title
-      font-size: $font-77
+      font-size: 66px
       margin-bottom: 30px
   .song
     display: flex
@@ -64,21 +81,21 @@ export default {}
         width: 205px
         height: 205px
         margin-right: 20px
-        margin-bottom: 15px
+        margin-bottom: 19px
         &:nth-child(2n)
           margin-right: 0
     .center
       width: 450px
-      height: 445px
+      height: 432px
       margin-right: 5px
       .mask
         position: absolute
         width: 450px
-        height: 445px
+        height: 432px
         background-color: white
         opacity: 0.3
       .main
-        padding: 15px 0 0 5px
+        padding: 1px 0 0 5px
         position: absolute
       .title
         font-size: $font-53
@@ -98,13 +115,13 @@ export default {}
             margin-left: 40px
       img
         margin-top: 20px
-        width: 210px
-        height: 210px
-        margin-right: 20px
+        width: 205px
+        height: 205px
+        margin-right: 23px
         &:last-child
           margin-right: 0
     .right
       width: 450px
-      height: 445px
+      height: 430px
   .de
 </style>
