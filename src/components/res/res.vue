@@ -14,17 +14,17 @@
               p.big ABC
               p.small Brown
             .single
-              p.big ABC
-              p.small Barlow
+              p.big.barlow ABC
+              p.small.barlow Barlow
             .single
-              p.big ABC
-              p.small Toko
+              p.big.teko ABC
+              p.small.teko Toko
             .single
-              p.big ABC
-              p.small Thonburi
+              p.big.helvetica ABC
+              p.small.helvetica helvetica
             .single
-              p.big ABC
-              p.small Quantify
+              p.big.quantify ABC
+              p.small.quantify Quantify
           el-slider(v-model="text1" :show-tooltip="false")
           p.font-size {{text1}} pt
       .item
@@ -112,7 +112,8 @@ export default {
     .pic
       width: 530px
       height: 530px
-      margin-left: 370px
+      margin-left: 250px
+      margin-right: 120px
     .right
       display: flex
       flex-direction: column
@@ -144,8 +145,13 @@ export default {
             color: white
             &.big
               font-size: $font-24
+              &.teko
+                margin-top: 1px
             &.small
               font-size: 12px
+              &.teko
+                font-size: 12px
+                margin-top: 3px
         .el-slider
           margin-left: 0
           margin-bottom: 100px

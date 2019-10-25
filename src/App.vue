@@ -43,6 +43,27 @@ export default {
   @font-face
     font-family: 'lineto'
     src: url(./assets/lineto-brown-regular.ttf) format("truetype")
+  @font-face
+    font-family: 'barlow'
+    src: url(./assets/Barlow-Regular.ttf) format("truetype")
+  @font-face
+    font-family: 'quantify'
+    src: url(./assets/Quantify.ttf) format("truetype")
+  @font-face
+    font-family: 'teko'
+    src: url(./assets/Teko-Regular.ttf) format("truetype")
+  @font-face
+    font-family: 'helvetica'
+    src: url(./assets/HelveticaNowDisplay-Regular.ttf) format("truetype")
+
+  .barlow
+    font-family: 'barlow', sans-serif !important
+  .quantify
+    font-family: 'quantify', sans-serif !important
+  .teko
+    font-family: 'teko', sans-serif !important
+  .helvetica
+    font-family: 'helvetica', sans-serif !important
   .wrapper
     overflow: hidden
     width: 100%
