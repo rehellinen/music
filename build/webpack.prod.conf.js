@@ -57,8 +57,8 @@ const webpackConfig = merge(baseWebpackConf, {
       }
     }),
     new MiniCssExtractPlugin({
-      filename: `css/[name].[hash:5].css`,
-      chunkFilename: `css/[name].[hash:5].css`
+      filename: `[name].[hash:5].css`,
+      chunkFilename: `[name].[hash:5].css`
     }),
     new CopyWebpackPlugin([
       {

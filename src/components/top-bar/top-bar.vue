@@ -67,7 +67,11 @@
           p(@click="changeType") Sadness
         router-link.cursor(to="/hot" tag="div")
           p(@click="changeType") Complex
-    .logo-container(v-show="logo")
+    .logo-container(
+      @mouseenter="changePersonal(true)"
+      @mouseleave="changePersonal(false)"
+      v-show="logo"
+      )
       .mask
       .main
         .top
@@ -95,10 +99,18 @@ export default {
     return {
       login: false,
       type: false,
-      logo: false
+      logo: false,
+      personal: false
     }
   },
   methods: {
+    changePersonal (e) {
+      this.personal = e
+      if (!e) {
+        this.logo = false
+        this.$emit('blur', this.logo)
+      }
+    },
     changeLogin () {
       this.login = !this.login
       this.type = false
@@ -112,10 +124,17 @@ export default {
       this.$emit('blur', this.type)
     },
     changeLogo (e) {
-      this.logo = e
       this.login = false
       this.type = false
-      this.$emit('blur', this.logo)
+      if (e) {
+        this.logo = e
+        this.$emit('blur', this.logo)
+      } else {
+        setTimeout(() => {
+          if (!this.personal) this.logo = e
+          this.$emit('blur', this.logo)
+        }, 100)
+      }
     }
   }
 }
@@ -158,6 +177,7 @@ export default {
         position: absolute
         width: 55px
         height: 55px
+        padding-bottom: 30px
         cursor: pointer
       .menu-items
         padding-left: 130px

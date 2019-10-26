@@ -98,6 +98,8 @@ module.exports = {
         // convert to base64
         loader: 'url-loader',
         options: {
+          outputPath: 'font',
+          publicPath: '',
           limit: 15000
         }
       },
@@ -108,6 +110,7 @@ module.exports = {
             // convert to base64
             loader: 'url-loader',
             options: {
+              outputPath: 'images',
               limit: 10000
             }
           },
